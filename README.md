@@ -2,6 +2,8 @@
 
 A tiny, safe exercise for learning [GitHub stacked pull requests](https://docs.github.com/en/pull-requests/how-tos/stacked-pull-requests).
 
+Start with the [three-minute introduction](https://freelancer0308.github.io/stacked-pr-kata/), then use this repository to try the workflow yourself.
+
 In about 10 minutes, you will create three draft pull requests that form one stack:
 
 ```text

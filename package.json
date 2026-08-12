@@ -3,6 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/check.mjs"
+    "test": "node scripts/check.mjs",
+    "slides:dev": "slidev slides/slides.md --open",
+    "slides:build": "slidev build slides/slides.md --base /stacked-pr-kata/",
+    "slides:export": "slidev export slides/slides.md --output stacked-pr-lightning-talk.pdf"
+  },
+  "devDependencies": {
+    "@slidev/cli": "52.19.0",
+    "@slidev/theme-default": "0.25.0",
+    "playwright-chromium": "1.62.1"
   }
 }
