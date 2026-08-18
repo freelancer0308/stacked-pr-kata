@@ -156,3 +156,60 @@ Developer 可以在前一個 PR 還沒 merge 時繼續往上做，工具負責�
 </div>
 
 <!-- 備用頁，主講三分鐘時停在上一張。 -->
+
+---
+
+<div class="eyebrow">Backup · 延伸</div>
+
+# 押這個工作流的不只 GitHub
+
+<p class="subtitle">三家都在處理「agent 一次產出大量程式碼」，差別在你要付多少切換成本。</p>
+
+<div class="cmp">
+  <table>
+    <thead>
+      <tr>
+        <th>做法</th>
+        <th>它其實是什麼</th>
+        <th>亮點</th>
+        <th>切換成本</th>
+        <th>狀態</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="is-ours">
+        <td class="who">GitHub<span>Stacked PR</span></td>
+        <td>GitHub <strong>原生功能</strong><br>只動 PR 的組織方式</td>
+        <td>一層一個 PR 照順序讀<br>合併最上層可一次落地下面所有層<br>沿用既有 branch protection 與 checks</td>
+        <td><strong>變動最小</strong><br>Git、hosting、CI 都不動<br>裝 <code>gh</code> 擴充、改 review 習慣</td>
+        <td><span class="stage-pill">Public Preview</span><br><span class="stage-date">2026-07-30</span></td>
+      </tr>
+      <tr>
+        <td class="who">Zed<span>Delta</span></td>
+        <td>疊在<strong>現有 git repo 上</strong>的協作／審查層<br>底層是 DeltaDB</td>
+        <td>對話與程式碼綁在一起，評論錨定到行、隨程式碼演進<br>Claude Code session 直接同步進 thread</td>
+        <td><strong>變動小</strong><br>不取代 Git，沒開 Delta 的人<br>看到的還是普通 repo</td>
+        <td><span class="stage-pill">私人 Beta</span><br><span class="stage-date">候補名單</span></td>
+      </tr>
+      <tr>
+        <td class="who">Cursor<span>Origin</span></td>
+        <td>全新 <strong>git forge</strong>，直接對位 GitHub<br>為 agent 併發重寫</td>
+        <td><strong>也做 stacked PR ＋ merge queue</strong><br>由 Cursor 收購的 Graphite 團隊打造<br>agent 可直接開 repo、commit、開 PR</td>
+        <td><strong>變動最大</strong><br>要把 repo 搬過去<br>（可先與 GitHub 雙向同步）</td>
+        <td><span class="stage-pill">早期 Beta</span><br><span class="stage-date">付費方案，秋季上線</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="repo-examples">
+  <span>Stacked PR 不是 GitHub 自己的實驗：<strong>Graphite 做出這個工作流 → Cursor 收購它做進 Origin → GitHub 直接做成原生。</strong></span>
+</div>
+
+<!--
+被問到「除了 GitHub 還有誰在做」才翻。重點一句：stacked PR 這個工作流不是 GitHub 的實驗，三家都在押。
+Graphite 是把 stacked diff 做起來的公司，Cursor 把它收購了，Origin 的 stacked PR 和 merge queue 就是那個團隊做的；GitHub 則是直接把它做成原生功能。
+Zed 的 Delta 走另一個方向，它不碰 Git，疊在你現有 repo 上，把對話和程式碼綁在一起，Claude Code 的 session 可以直接同步進去，所以切換成本很低。
+Origin 野心最大也最貴：它是重寫的 git forge，demo 數字是每秒 22.6 個 commit、每小時 29.6 萬次 clone，但要把 repo 搬過去。8 月的早期 beta 目前看到的是 repo、PR、瀏覽和 GitHub 同步。
+結論：三個裡面 GitHub 這個要動的東西最少，Git、hosting、CI 都不用碰，所以現在就能試。
+-->
